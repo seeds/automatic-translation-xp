@@ -1,0 +1,14 @@
+Private-Package=*;-split-package\:\=merge-first
+Bundle-Name=Automatic Translation App
+X-Source-Paths=/home/diego/Documents/Diego/Projects/AUTOMATIC-TRANSLATION-APP/github/automatic-translation-xp/src/main/resources,/home/diego/Documents/Diego/Projects/AUTOMATIC-TRANSLATION-APP/github/automatic-translation-xp/build/resources/main
+Import-Package=*;resolution\:\=optional
+-dsannotations=*
+X-Capability=
+-includeresource.serviceloader=META-INF/services/com.github.mizosoft.methanol.BodyDecoder$Factory\=/tmp/services1270998932143693139/com.github.mizosoft.methanol.BodyDecoder$Factory
+X-Vendor-Name=null
+Bundle-SymbolicName=no.seeds.automatictranslation
+X-Bundle-Type=application
+X-System-Version=[7.13,8)
+-removeheaders=Require-Capability,Include-Resource
+X-Vendor-Url=null
+-nouses=true

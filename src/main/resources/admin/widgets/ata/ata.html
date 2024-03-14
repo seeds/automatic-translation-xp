@@ -1,0 +1,46 @@
+<widget id="ata" th:attr="data-widget-url=${url}">
+    <link rel="stylesheet" th:href="${portal.assetUrl({'_path=css/ata.css'})}"></link>
+    <script type="text/javascript" th:src="${portal.assetUrl({'_path=js/ata.js'})}"></script>
+    <div class="ata-license" th:if="${noLicense}">
+        <p th:text="${translate.noLicense}"></p>
+        <div class="upload-file" id="ata_upload_input">
+            <span class="loader"></span>
+            <label th:text="${translate.uploadLicense}"></label>
+            <input th:attr="data-service-url=${licenseServiceUrl}" type="file"></input>
+        </div>
+        <p class="error-message" th:text="${translate.invalidLicense}"></p>
+    </div>
+
+    <div th:unless="${noLicense}" class="ata-content">
+        <div class="ata__logo">
+            <img class="header" th:src="${portal.assetUrl({'_path=images/header.png'})}" th:alt="${translate.alt_header}" />
+        </div>
+        <div th:if="${mode == 'manual'}" class="form-base">
+            <div class="input-group">
+                <label for="ata_translate_input"><b>Source Language</b></label>
+                <textarea id="ata_translate_input" th:placeholder="${translate.input_placeholder}" name="msg"></textarea>
+                <button id="ata_translate_btn" th:attr="data-service-url=${serviceUrl}, data-tooltip=${translate.alt_translate_btn}" type="button">
+                    <span class="loader"></span>
+                    <img th:src="${portal.assetUrl({'_path=images/icons/translate.png'})}" th:alt="${translate.alt_translate_btn}" />
+                </button>
+            </div>
+            <p id="ata-error" th:text="${translate.error_message}"></p>
+            <div class="input-group">
+                <label for="ata_copy_input"><b>Target Language</b></label>
+                <textarea id="ata_copy_input" name="translated" readonly></textarea>
+                <button id="ata_copy_btn" type="button" th:attr="data-tooltip=${translate.alt_copy_btn},data-success-message=${translate.alt_copy_btn_success},data-copy-message=${translate.alt_copy_btn}">
+                    <img th:src="${portal.assetUrl({'_path=images/icons/copy.png'})}" th:alt="${translate.alt_copy_btn}" />
+                </button>
+            </div>
+        </div>
+        <div th:if="${mode == 'automatic'}" class="form-base">
+            <div class="input-group">
+                <button id="ata_auto_translate_btn" th:attr="data-service-url=${serviceUrl}, data-tooltip=${translate.alt_auto_translate_btn}, data-tooltip-position='bottom'" type="button">
+                    <span class="loader"></span>
+                    <img th:src="${portal.assetUrl({'_path=images/icons/auto_translate.png'})}" th:alt="${translate.alt_auto_translate_btn}" />
+                </button>
+            </div>
+            <p id="ata-error" th:text="${translate.error_message}"></p>
+        </div>
+    </div>
+</widget>

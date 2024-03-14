@@ -1,0 +1,38 @@
+<site>
+    <form>
+        <field-set>
+            <label i18n="site.field-set.google_api_config">Google Cloud Translation API Config</label>
+            <items>
+                <input type="TextLine" name="google_api_key">
+                    <label i18n="site.input.google_api_key">API Key</label>
+                    <occurrences minimum="1" maximum="1" />
+                </input>
+                <input type="CustomSelector" name="google_api_source_language">
+                    <label i18n="site.input.google_api_source_language">Source language</label>
+                    <help-text i18n="site.input.google_api_language.help_text">you must enter the api key and apply the configuration before selecting a language</help-text> 
+                    <occurrences minimum="0" maximum="1" />
+                    <config>
+                        <service>get-google-api-languages</service>
+                    </config>
+                </input>
+                <input type="CustomSelector" name="google_api_target_language">
+                    <label i18n="site.input.google_api_target_language">Target language</label>
+                    <help-text i18n="site.input.google_api_language.help_text">you must enter the api key and apply the configuration before selecting a language</help-text> 
+                    <occurrences minimum="0" maximum="1" />
+                    <config>
+                        <service>get-google-api-languages</service>
+                    </config>
+                </input>
+            </items>
+        </field-set>
+        <input type="RadioButton" name="mode">
+            <label i18n="site.input.mode">Mode</label>
+            <occurrences minimum="1" maximum="1" />
+            <config>
+                <option value="manual" i18n="site.mode.manual">Manual</option>
+                <option value="automatic" i18n="site.mode.automatic">Automatic</option>
+            </config>
+            <default>manual</default>
+        </input>
+    </form>
+</site>

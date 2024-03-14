@@ -1,0 +1,188 @@
+.ata-content {
+    padding: 0px 15px;
+}
+
+.ata-content .input-group {
+    margin-top: 10px;
+}
+
+.ata-content .header {
+    width: 100%;
+}
+
+
+#ata-error {
+    margin-bottom: 10px;
+    color: red;
+    display: none;
+}
+
+.ata-content .form-base textarea {
+    width: calc(100% - 10px);
+    resize: none;
+    min-height: 200px;
+    outline: none;
+    margin: 5px 0px 10px;
+    border-width: initial;
+    border-style: none;
+    border-color: initial;
+    border-image: initial;
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+
+.ata-content .form-base textarea:hover {
+    border: 1px solid #98c9f2;
+    -webkit-box-shadow: 0 0 5px #98c9f2;
+    box-shadow: 0 0 5px #98c9f2;
+}
+
+.ata-content .form-base textarea:focus {
+    outline-offset: -2px;
+    outline-style: auto;
+    outline-width: 2px;
+}
+
+.ata-content .form-base button {
+    width: 100%;
+    background-color: #333333;
+    border: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.ata-content .form-base button img {
+    height: 50px;
+}
+
+/* Tooltip */
+.ata-content [data-tooltip] {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+}
+
+.ata-content [data-tooltip]:before,
+.ata-content [data-tooltip]:after {
+    visibility: hidden;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=0);
+    opacity: 0;
+    pointer-events: none;
+}
+
+.ata-content [data-tooltip]:before {
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    margin-bottom: 5px;
+    margin-left: -110px;
+    padding: 7px;
+    width: 220px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    content: attr(data-tooltip);
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.2;
+}
+
+.ata-content [data-tooltip]:after {
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    margin-left: -5px;
+    width: 0;
+    border-top: 5px solid #000;
+    border-top: 5px solid hsla(0, 0%, 20%, 0.9);
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: " ";
+    font-size: 0;
+    line-height: 0;
+}
+
+.ata-content [data-tooltip]:hover:before,
+.ata-content [data-tooltip]:hover:after {
+    visibility: visible;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    filter: progid: DXImageTransform.Microsoft.Alpha(Opacity=100);
+    opacity: 1;
+}
+
+.ata-content [data-tooltip][data-tooltip-position="bottom"]:before {
+    top: calc(100% + 11px);
+    bottom: initial;
+}
+
+.ata-content [data-tooltip][data-tooltip-position="bottom"]:after {
+    bottom: -20%;
+    transform: rotate(180deg);
+}
+
+/* Loader */
+.ata-content .loader {
+    position: absolute;
+    top: 10px;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+    border: 5px solid #FFF;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+    visibility: hidden;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.ata-license {
+    padding: 10px;
+    text-align: center;
+}
+
+.ata-license .upload-file {
+    margin: 10px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ata-license .upload-file label {
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    background-color: #2c76e9;
+    color: white;
+    cursor: pointer;
+    padding: 8px 19px;
+}
+
+.ata-license .upload-file input {
+    display: none;
+}
+
+.ata-license .error-message {
+    color: red;
+    display: none;
+}
+
+/* CUSTOM CSS */
+.ata__logo{
+    margin: 12px 0px;
+}
+/* CUSTOM CSS */
