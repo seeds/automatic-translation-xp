@@ -15,6 +15,10 @@ cd automatic-translation-xp
 
 Install the application and add it to your site. A valid API Key from Google Cloud then needs to be defined in the app settings in order to use the Widget.
 
+## Known issues
+
+- When translating content in Automatic mode the value stored for input fields like radioButton will also be translated. This may result in invalid options once the object is modified and the page is refreshed. Editors may want to double check and review the translated values before publishing the changes.
+
 ## License and credits
 
 A license is required to use this application. Once the app is installed, the Widget will be blocked until a license is provided.
