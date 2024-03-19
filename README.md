@@ -22,6 +22,12 @@ Install the application and add it to your site. A valid API Key from Google Clo
 
 Editors may want to double check and review the translated values before publishing the changes.
 
+## Releases and Compatibility
+
+| Version | XP version   |
+| ------- | ------------ |
+| 1.0.0  | 7.13.3       |
+
 ## License and credits
 
 A license is required to use this application. Once the app is installed, the Widget will be blocked until a license is provided.
