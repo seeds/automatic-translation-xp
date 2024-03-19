@@ -17,7 +17,10 @@ Install the application and add it to your site. A valid API Key from Google Clo
 
 ## Known issues
 
-- When translating content in Automatic mode the value stored for input fields like radioButton will also be translated. This may result in invalid options once the object is modified and the page is refreshed. Editors may want to double check and review the translated values before publishing the changes.
+- When translating content in Automatic mode the value stored for input fields like radioButton will also be translated. This may result in invalid options once the object is modified and the page is refreshed.
+- It is possible that iframes present in HtmlArea fields stop working once the object is modified and the page is refreshed.
+
+Editors may want to double check and review the translated values before publishing the changes.
 
 ## License and credits
 
