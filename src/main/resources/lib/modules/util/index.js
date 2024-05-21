@@ -44,7 +44,7 @@ function localize(key) {
 }
 
 function isUrlValue(str) {
-    var urlPattern = /^(https?:\/\/)?([\da-zA-Z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$/
+    var urlPattern = /^(https?:\/\/)?([\w.-]+)\.([a-z]{2,6})(\/[\w.-]*)*\/?(#[\w.-]*)?$/
     return urlPattern.test(str)
 }
 
