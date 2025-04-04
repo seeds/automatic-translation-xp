@@ -182,7 +182,48 @@
 }
 
 /* CUSTOM CSS */
-.ata__logo{
+.ata__logo {
     margin: 12px 0px;
 }
+
 /* CUSTOM CSS */
+/* TABS CSS */
+.tab-container {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+}
+
+.tabs {
+    display: flex;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border-bottom: 2px solid #ccc;
+}
+
+.tab {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    border: 1px solid #ccc;
+    border-bottom: none;
+    background-color: #e9e9e9;
+    transition: background-color 0.3s;
+}
+
+.tab.active {
+    background-color: #ffffff;
+}
+
+.tab-content {
+    display: none;
+    background-color: #ffffff;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.hide-ata {
+    display: none !important;
+}

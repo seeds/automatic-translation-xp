@@ -27,6 +27,10 @@ dependencies {
     include 'com.enonic.lib:lib-cache:2.2.0'
     include 'com.enonic.lib:lib-text-encoding:2.1.1' 
     include "com.enonic.xp:lib-common:${xpVersion}"
+    include "com.enonic.xp:lib-schema:${xpVersion}"
+    include "com.enonic.xp:lib-app:${xpVersion}"
+	include "com.enonic.xp:lib-project:${xpVersion}"
+    include "com.enonic.xp:lib-repo:${xpVersion}"
 }
 
 repositories {

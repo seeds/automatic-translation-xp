@@ -15,7 +15,16 @@
         <div class="ata__logo">
             <img class="header" th:src="${portal.assetUrl({'_path=images/header.png'})}" th:alt="${translate.alt_header}" />
         </div>
-        <div th:if="${mode == 'manual'}" class="form-base">
+        
+        <div class="tabs" th:classappend="${mode.automatic && mode.manual ? '' : 'hide-ata'}">
+            <div class="tab active" data-tab="manual-ata-tab" th:classappend="${mode.manual ? '' : 'hide-ata'}" th:text="${translate.manualMode}">Manual</div>
+            <div class="tab" th:classappend="|${mode.manual ? '' : 'active'} ${mode.automatic ? '' : 'hide-ata'}|" data-tab="automatic-ata-tab" th:text="${translate.automaticMode}">Automatic</div>
+        </div>
+        <div th:unless="${mode.automatic || mode.manual}" th:text="${translate.selectModeMessage}">
+            Select an option manual and/or automatic in site config
+        </div>
+
+        <div id="manual-ata-tab" class="tab-content form-base active" th:classappend="${mode.manual ? '' : 'hide-ata'}">
             <div class="input-group">
                 <label for="ata_translate_input"><b>Source Language</b></label>
                 <textarea id="ata_translate_input" th:placeholder="${translate.input_placeholder}" name="msg"></textarea>
@@ -33,7 +42,7 @@
                 </button>
             </div>
         </div>
-        <div th:if="${mode == 'automatic'}" class="form-base">
+        <div id="automatic-ata-tab" class="tab-content form-base" th:classappend="|${mode.manual ? '' : 'active'} ${mode.automatic ? '' : 'hide-ata'}|">
             <div class="input-group">
                 <button id="ata_auto_translate_btn" th:attr="data-service-url=${serviceUrl}, data-tooltip=${translate.alt_auto_translate_btn}, data-tooltip-position='bottom'" type="button">
                     <span class="loader"></span>

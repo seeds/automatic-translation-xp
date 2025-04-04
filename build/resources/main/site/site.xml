@@ -25,14 +25,20 @@
                 </input>
             </items>
         </field-set>
-        <input type="RadioButton" name="mode">
-            <label i18n="site.input.mode">Mode</label>
-            <occurrences minimum="1" maximum="1" />
-            <config>
-                <option value="manual" i18n="site.mode.manual">Manual</option>
-                <option value="automatic" i18n="site.mode.automatic">Automatic</option>
-            </config>
-            <default>manual</default>
-        </input>
+        <field-set>
+            <label i18n="site.field-set.mode">Mode</label>
+            <items>
+                <input type="CheckBox" name="manual_mode">
+                    <label i18n="site.input.manual_mode">Manual</label>
+                    <default>unchecked</default>
+                    <occurrences minimum="0" maximum="1" />
+                </input>
+                <input type="CheckBox" name="automatic_mode">
+                    <label i18n="site.input.automatic_mode">Automatic</label>
+                    <default>unchecked</default>
+                    <occurrences minimum="0" maximum="1" />
+                </input>
+            </items>
+        </field-set>
     </form>
 </site>

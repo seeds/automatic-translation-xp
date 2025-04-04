@@ -1,6 +1,7 @@
 const HttpClient = require('/lib/http-client')
 const Admin = require('/lib/xp/admin')
 const I18n = require('/lib/xp/i18n')
+const Content = require('/lib/xp/content')
 
 module.exports = {
     performRequest,
@@ -8,6 +9,8 @@ module.exports = {
     localize,
     isUrlValue,
     isUUIDValue,
+    getAppConfig,
+    forceArray
 }
 
 function performRequest(request, MAX_RETRY = 3){
@@ -51,4 +54,39 @@ function isUrlValue(str) {
 function isUUIDValue (str) {
 	const regex = new RegExp(/^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i)
 	return regex.test(str)
+}
+
+function getAppConfig(contentId) {
+    let siteConfig = (contentId && Content.getSiteConfig({
+        key: contentId,
+        applicationKey: app.name
+    }))
+
+    if (!siteConfig) {
+        const sitesQuery = Content.query({
+            count: 1,
+            contentTypes: [`portal:site`],
+            query: `type='portal:site' AND data.siteConfig.applicationKey='${app.name}'`
+        })
+
+        if (sitesQuery.total > 0) {
+            siteConfig = Content.getSiteConfig({
+                key: sitesQuery.hits[0]._id,
+                applicationKey: app.name
+            })
+        }
+    }
+
+    return siteConfig
+}
+
+function forceArray(data) {
+	if (data === null || data === undefined) {
+		data = []
+	} else if (Object.prototype.toString.call(data) === '[object Arguments]') {
+		data = Array.prototype.slice.call(data)
+	} else if (!Array.isArray(data)) {
+		data = [data]
+	}
+	return data
 }

@@ -30,12 +30,8 @@ exports.get = function(req) {
 
 
     const contentId = req.params.contentId
-    const siteConfig = (contentId && Content.getSiteConfig({
-        key: contentId,
-        applicationKey: app.name
-    })) || {}
+    const siteConfig = Util.getAppConfig(contentId) || {}
     const apiKey = siteConfig.google_api_key
-    const mode = siteConfig.mode || 'manual'
 
     if (!apiKey) {
         return {
@@ -46,7 +42,10 @@ exports.get = function(req) {
 
     model = {
         serviceUrl: Portal.serviceUrl({ service: 'get-translation', type: 'absolute', params: { contentId: contentId } }),
-        mode: mode,
+        mode: {
+            manual: siteConfig.manual_mode || false,
+            automatic: siteConfig.automatic_mode || false,
+        },
         translate: {
             input_placeholder: Util.localize('widgets.ata.view.input_placeholder'),
             alt_header: Util.localize('widgets.ata.view.alt_header'),
@@ -54,7 +53,10 @@ exports.get = function(req) {
             alt_auto_translate_btn: Util.localize('widgets.ata.view.alt_auto_translate_btn'),
             alt_copy_btn: Util.localize('widgets.ata.view.alt_copy_btn'),
             error_message: Util.localize('widgets.ata.view.error_message'),
-            alt_copy_btn_success: Util.localize('widgets.ata.view.alt_copy_btn_success')
+            alt_copy_btn_success: Util.localize('widgets.ata.view.alt_copy_btn_success'),
+            manualMode: Util.localize('widgets.ata.view.manual_mode'),
+            automaticMode: Util.localize('widgets.ata.view.automatic_mode'),
+            selectModeMessage: Util.localize('widgets.ata.view.select_mode_message'),
         }
     }
 
